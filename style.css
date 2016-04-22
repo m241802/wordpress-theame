@@ -1,0 +1,1649 @@
+/*
+Theme Name: MSA
+*/
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{ 
+  font-family: 'ForteMT';
+      src: url('fonts/ForteMT.eot');
+      src: url('fonts/ForteMT.eot?#iefix') format('embedded-opentype'),
+           url('fonts/ForteMT.woff') format('woff'),
+           url('fonts/ForteMT.ttf') format('truetype'),
+           url('fonts/ForteMT.svg#ForteMT') format('svg');
+}
+@font-face{ 
+  font-family: 'fontawesome-webfont';
+      src: url('fonts/fontawesome-webfont/fontawesome-webfont.eot');
+      src: url('fonts/fontawesome-webfont/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+           url('fonts/fontawesome-webfont/fontawesome-webfont.woff') format('woff'),
+           url('fonts/fontawesome-webfont/fontawesome-webfont.ttf') format('truetype'),
+           url('fonts/fontawesome-webfont/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
+}
+/* Reset and Normalize
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	border: 0;
+	font-family: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: top;
+}
+html {
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+	display: block;
+}
+nav {
+	font-size: 19px;
+}
+ol, ul {
+	list-style: none;
+}
+table { /* tables still need 'cellspacing="0"' in the markup */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	font-weight: normal;
+	text-align: left;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+a:focus {
+	outline: thin dotted;
+}
+a:hover,
+a:active { /* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
+	outline: 0;
+}
+a img {
+	border: 0;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 2px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* Global
+---------------------------------------------*/
+body {background: #fff;}
+body,
+button,
+input,
+select,
+textarea {
+	-moz-font-smoothing:antialiased;
+	-webkit-font-smoothing:antialiased;
+	color: #000;
+	font-family: 'Muli', sans-serif;
+	font-size: 15px; /* pixels are needed for IE 8 and lower :( */
+	font-size: 1.5rem; /* Snooka explains font resizing using rem - http://snook.ca/archives/html_and_css/font-size-with-rem */
+	line-height: 1.5;
+}
+input,
+select,
+textarea {
+	border: 1px solid #ddd;
+    border-radius: 2px;
+}
+/* This silliness below is needed here if we use rems because Chrome is being a dick lately
+* https://code.google.com/p/chromium/issues/detail?id=320754
+*/
+p, ul, ol, table, td, th, dl, dd, dt {
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+
+/* Headings */
+h1,h2,h4,h5,h6 {
+	clear: both;
+}
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+/* Text elements */
+ul, ol {
+	margin: 0 0 1.5em 1em;
+}
+ul {
+	list-style: disc;
+}
+ol {
+	list-style: decimal;
+}
+ul ul, ol ol, ul ol, ol ul {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin: 0 1.5em 1.5em;
+}
+b, strong {
+	font-weight: bold;
+}
+dfn, cite, em, i {
+	font-style: italic;
+}
+blockquote {
+	margin: 0 1.5em;
+}
+address {
+	margin: 0 0 1.5em;
+}
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	overflow: auto;
+	max-width: 100%;
+}
+code, kbd, tt, var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+abbr, acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+small {
+	font-size: 75%;
+}
+big {
+	font-size: 125%;
+}
+figure {
+	margin: 0;
+}
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+th {
+	font-weight: bold;
+}
+td, th {
+	padding: 3px 5px;
+}
+table {
+    border: 1px solid #ddd !important;
+    border-collapse: collapse;
+}
+table td, table th {
+    border: 1px solid #ddd !important;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+table thead {
+    background: #eee;
+}
+table, td, th, dl, dd, dt {
+    line-height: 1.8em;
+}
+.clear {
+    clear: both;
+    float: none;
+}
+
+/* Forms and buttons
+-----------------------------------------*/
+button,
+textarea {
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+}
+button,
+input {
+	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
+}
+input,
+select,
+textarea {
+	padding: 9px 3px;
+}
+.contacts {
+     display: inline-block;
+     width: 241px;
+     height: 141px;
+     padding: 1.2em 0.9375em;
+     background: #E7E4E4;
+}
+.contacts h4 {
+     border-bottom: 1px solid #000;
+     margin: 0 0 1em;
+     padding: 0 0 0.5em;
+     letter-spacing: 0.07em;
+     text-transform: uppercase;
+}
+.wpcf7-form textarea {
+	width: 347px;
+}
+.wpcf7-form {
+    padding: 7px 10px 5px;
+    background: #E7E4E4;
+    border: 1px solid #222;
+    width: 375px;
+    margin: auto;
+    position: relative;
+    top: 120px;
+   /* padding: 15px 0;*/
+    z-index: 1200;
+    display: none;
+}
+.wpcf7-form p:after {
+	content:*;
+	color: #00C5B6;
+}
+.active-to-order .wpcf7-form {
+    display: block;
+}
+.contact-form {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.substrate-form {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    display: none;
+}
+.active-to-order .substrate-form {
+	opacity: 0.7;
+    cursor: pointer;
+    height: 1813px;
+    display: block;
+    background-color: rgb(119, 119, 119);
+}
+div.close-form {
+   display: none;
+   position: absolute;
+   top: 3px;
+   right: 3px;
+   width: 15px;
+   height: 15px;
+   background: url('image/closeblue.png');
+   cursor: pointer;
+   z-index: 1103;
+}
+.active-to-order .close-form {
+   display: block;
+}
+/* Media
+-----------------------------------------*/
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+#wrap-site {background: #fff;}
+#branding img,
+#main img,
+img[class*="align"],
+img[class*="wp-image-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+/* Forms and Buttons
+----------------------------------------------*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+}
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
+	padding: 0; /* Addresses excess padding in IE8/9 */
+}
+input[type="search"] {
+	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+	box-sizing: content-box;
+	width: 200px;
+}
+input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+	-webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	border: 0;
+	padding: 0;
+}
+textarea {
+	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	vertical-align: top; /* Improves readability and alignment in all browsers */
+}
+select {width: 100%;}
+
+/* Image Alignment
+----------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin: 0 37px 0;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin: 0 0 0.625em 0.625em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto 0.625em;
+}
+.wp-caption {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	margin-bottom: 0.625em;
+	max-width: 100%;
+	padding: 0.25em;
+}
+.wp-caption img {
+	display: block;
+	margin: 1.2% auto 0;
+	max-width: 98%;
+}
+.wp-caption-text {
+	color: #aaa;
+	font-size: 13px;
+	font-size: 1.3rem;
+	text-align: center;
+}
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+/* General Styles
+----------------------------------------------*/
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+a {
+	color: #00C5B6;
+	cursor: pointer;
+	text-decoration: none;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+a:hover,
+a:focus,
+a:active {
+	color: #05C2FA;
+}
+p {
+	margin: 0;
+	margin-bottom: 7px;
+	word-wrap: break-word;
+}
+h1,h2,h3,h4,h5,h6 {
+	color: #379EDD;
+	font-weight: 600;
+}
+h1 {
+	font-size: 20px;
+	font-size: 2.0rem;
+    margin: 0.8em 1.3em;
+}
+h1.post-title {
+	line-height: 1.25em;
+}
+h1.page-title {
+        line-height: 1.25em;
+}
+h2,h2 a {
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+h3,h5,h6 {
+	font-size: 22px;
+	font-size: 2.2rem;
+}
+h4 {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+h2,h2 a,h3,h4,h5,h6 {
+	line-height: 1.25em;
+	margin: 0.1em 0 0.7em;
+}
+h3, h4 {
+    text-align: center;
+}
+h2.entry-title a {
+	text-decoration: none;
+}
+h2.entry-title, h2.entry-title a {
+	font-size: 3rem;
+	margin-bottom: 0.1em !important;
+	margin-top: 0 !important;
+}
+h2.entry-title a:hover {
+	color:#333;
+}
+h3.blog-title {
+    text-align: center;
+}
+blockquote {
+    color: #555;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    line-height: 2.525em;
+    margin: 0.925em 0;
+    padding: 0.925em 0;
+}
+blockquote:before {
+	color: #7d7373;
+	content: "\f10d";
+	font-family: FontAwesome;
+	font-size: 25px;
+	position:absolute;
+}
+blockquote p {
+    position:relative !important;
+    margin: 23px 0 0 37px !important;
+	font-size: 22px;
+	font-size: 2.2rem;
+}
+blockquote p cite {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-size: 1.8rem;
+    display: block;
+    font-size: 11px;
+}
+
+/* Main Layout
+ * The main container here is set to 1200px
+ * If you choose to set this to a different size, make sure you update the
+ * media query so that when you are at this breakpoint the container is set to 100%.
+-----------------------------------------------------------------------------------*/
+.fixedbar {
+	position: fixed; 
+	top: 0;   
+}
+#top-wrap {
+    width: 100%;
+    z-index: 1000;
+    background: #05C2FA;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #fff;
+    opacity: .99;
+}
+.topbar {
+   float: right; 
+}
+.top-inner {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+#branding img {
+	height: auto;
+	margin-bottom: -7px;
+	width: 100%;
+}
+#logo,
+#logo-mini {
+	display: block;
+	float: left;
+	font-family: 'ForteMT';
+	color: #fff;
+    margin: 0 14px;
+}
+#logo {    
+    margin: 30px 12px 0;
+    background: url(images/logo.png);
+    width: 135px;
+    height: 40px;
+}
+#logo-mini {
+	background: url(images/logo-mini.png);
+    width: 125px;
+    height: 35px;
+}
+#tagline {
+	display: none;
+}
+
+.header-card a,
+.social-media a {
+	color: #fff;	
+    background: #05C2FA;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.header-card,
+.social-media a,
+.social-media {
+	display: inline-block;
+}
+.header-card a:hover,
+.social-media a:hover {
+	background: #fff;
+	color: #00C5B6;
+}
+.header-card a::before {
+	content: "";
+    width: 33px;
+    height: 21px;
+    display: inline-block;
+    background: url(images/cart-32x22.png) 2px -1px;
+}
+/* Social Media icons
+ * These are positioned absolutely right now. If you move them
+ * to the sidebar or footer, just get rid of that.
+------------------------------------------------------ */
+.social-media {
+	/*width: 64px;*/
+}
+.social-media li {
+	float: left;
+	padding: 0 5px;
+	position: relative;
+}
+.header-card a{
+	padding: 6px 18px; 
+	display: block;   
+}
+.social-media a {
+	padding: 10px 18px;    
+}
+.vk, .fb, .gp {
+    height: 20px;
+    width: 20px;
+    display: block;       
+	font-size: 25px;
+    color: #FFF;
+}
+.vk:after {
+	font-family: 'fontawesome-webfont';
+    content: "\f189";
+    line-height: 18px;
+    display: block;	
+}
+.fb:after {
+	font-family: 'fontawesome-webfont';
+    content: "\f09a";
+    line-height: 18px;
+    display: block;	
+}
+.gp:after {
+	font-family: 'fontawesome-webfont';
+    content: "\f0d5";
+    line-height: 18px;
+    display: block;	
+}
+/* Primary Navigation
+-------------------------------------------------------------- */
+.main-navigation {	
+	display: block;
+	float: right;
+	margin: 0 auto;
+	margin-left: 15%;
+}
+.main-navigation ul {
+	list-style: none;
+	margin: 0 25px;
+	padding: 0;
+}
+.main-navigation li {
+	float: left;
+	position: relative;
+}
+.main-navigation a {	
+	display: block;
+	padding: 14px 10px;
+    font-size: 18px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #fff;
+}
+.main-navigation ul ul {
+	-moz-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	display: none;
+	float: left;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	width: 188px;
+	z-index: 99999;
+}
+.main-navigation ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.main-navigation ul ul a {
+	background: #E7E4E4;
+	color: #222;
+	height: auto;
+	line-height: 1.4em;
+	padding: 10px;
+	width: 168px;
+}
+
+.main-navigation li:hover > a,
+.main-navigation ul ul :hover > a,
+.main-navigation a:focus {
+	color: #00C5B6;
+	background-color:#fff;
+}
+.main-navigation ul li:hover > ul {
+	display: block;
+}
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a,
+.main-navigation .current_page_item > a,
+.main-navigation .current_page_ancestor > a {
+	background: #fff;
+	color: #00C5B6;
+}
+/* Small menu */
+.menu-toggle {
+	display: none;
+	cursor: pointer;
+}
+.main-small-navigation > ul {
+	display: none;
+}
+#wrap {
+	margin: 0 auto;
+	width: 1200px;
+}
+.to-order {
+display: none;
+	float: right;
+	padding: 13px 10px;
+    color: #FF1D1D;
+    font-size: 17px;
+    cursor: pointer;
+}
+/* Main Body Content Area
+-----------------------------------------------------------*/
+#main {
+    background: #F5F5F5;
+    margin-top: 15px;
+}
+.home #content {
+	margin-top: 5px;
+}
+#content {
+	float: right;
+	width: 71%;
+	padding: 0 0.625em;
+	line-height: 1.7em; 
+        text-align: justify;  
+}
+#home-content {
+	padding: 0 0.625em;
+	line-height: 1.7em;
+    margin-top: 10px;
+}
+/* Main body blog content formatting
+--------------------------------------------------------------*/
+.hentry {
+	padding: 0;
+	margin-bottom: 1.4em;
+	border-bottom: dotted 1px #d4d4d4;
+	overflow: hidden;
+}
+.home .hentry, .archive .hentry {
+	padding: 0 0 1.2em;
+	margin-bottom: 2.5em;
+	border-bottom: dotted 1px #d4d4d4;
+	position: relative;
+}
+.hentry ul,
+.hentry ol {
+	margin: 0 1.25em 0.3125em;
+	padding: 0 1.25em 0.3125em;
+}
+.hentry li {
+    padding: 6px 0;
+}
+.sticky {}
+.home .sticky-post {
+    background: #00C5B6;
+    color: #fff;
+    padding: 1px 10px;
+    position: absolute;
+    right: 0;
+    border-radius: 4px;
+    font-size: 13px;
+    top: 5px;
+}
+.paged .sticky-post {
+    display: none !important;
+}
+.entrymeta {
+color: #999;
+padding: 0.225em 0 0.9em;
+}
+.entrymeta p {
+	font-size: 13px;
+	font-size: 1.3rem;
+	line-height: 1.125em; /* 18px / 16px */
+	margin: 0.01em 0 0.65em;
+}
+.entrymeta span {
+    margin: 0px 20px 0 2px;
+    text-transform: capitalize;
+	line-height: 2em;
+}
+.entrymeta a {
+    color: #999;
+}
+.entrymeta a:hover {
+    color: #00C5B6;
+}
+span.read-more {
+    clear: both;
+    display: block;
+}
+span.read-more a {
+    display: inline-block;
+    background: #00C5B6;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 20px 0 0;
+}
+span.read-more a:hover {
+    background: #028080;
+}
+.p-tags {
+    margin: 20px 0;
+}
+.p-tags a {
+    display: inline-block;
+    background: #00C5B6;
+    padding: 2px 10px;
+    color: #fff;
+    margin: 0 10px 0 0;
+    font-size:13px;
+}
+.p-tags a:hover {
+    background: #028686;
+}
+.post-navigation {
+	padding: 0.5em 0 1.5em;
+}
+.nav-previous {
+	float: left;
+	text-align: left;
+	width: 50%;
+	color: #00C5B6;
+}
+.nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+	color: #00C5B6;
+}
+.post-thumb {
+    float: left;
+    margin: 0 16px 16px;
+}
+.post-thumb a img:hover {
+	opacity: 0.8;
+}
+.post-navigation ul li a, .post-navigation ul li span {
+    display: block;
+    float: left;
+    background: #fff;
+    color: #00C5B6;
+    padding: 2px 10px;
+    margin: 0 15px 0 0;
+    border: 1px solid #00C5B6;
+}
+.post-navigation ul li a:hover {
+	background: #00C5B6;
+	color: #fff;
+	border: 1px solid #00C5B6;
+}
+.post-navigation ul {
+    clear: both;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-navigation ul li span.current {
+    background: #00C5B6;
+    color: #fff;
+}
+.post-navigation ul li a:hover {
+    background: #00C5B6;
+    color: #fff;
+}
+/* Sidebar Area
+-------------------------------------------*/
+#sidebar {
+	color: #fff;
+	float: left;
+	width: 27%;
+	padding: 1em 0;
+    background: #05C2FA;
+    border-radius: 5px;
+}
+.widget {
+	padding: 3.5% 0;
+}
+#sidebar h4 {
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin: 0 0 1em;
+	padding: 0 0 0.5em;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+}
+#sidebar ul {
+	list-style: none;
+	margin-left:0;
+}
+#sidebar ul li {	
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+#sidebar a {
+	color: #fff;	
+	padding-left: 10px;
+	display: block;
+	font-size: 16px;
+}
+#sidebar .widget_product_categories a:hover {	
+	padding-left: 15px;
+}
+.sidebar-img{
+	float: left;
+	padding-right: 7px;
+}
+#sidebar .tagcloud a {
+    display: inline-block;
+    color: #fff;
+    background: #00C5B6;
+    font-size: 13px !important;
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+}
+#sidebar .tagcloud a:hover {
+    background: #028080;
+}
+.widget_search label {
+    display:none;
+}
+#wp-calendar caption {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.widget_price_filter,
+#woocommerce_product_categories-3,
+.woocommerce-product-search {
+	padding: 0 12px;
+}
+.widget_price_filter {
+	margin-bottom: 30px;
+}
+
+/* Footer area
+------------------------------------------------------------*/
+footer {
+	clear: both;
+	margin: 0 auto;
+	text-align: center;
+	background: #00C5B6;
+	padding-bottom: 100px;
+}
+footer p {
+	color: #fff;
+	font-size: 14px;
+	font-size: 1.4rem;
+	padding: 2.2em 0 0;
+}
+footer a {
+	color: #fff;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #d4d4d4;
+	text-decoration: underline;
+}
+.footer-wrap {
+	margin: 0 auto;
+    padding-top: 20px;
+    max-width: 1200px;
+}
+footer li {
+	list-style: none;
+	display: block;
+	font-size: 18px;
+}
+.menu-footer-container,
+.menu-footer-buyer-container ,
+.menu-footer-info-container,
+.menu-about-us-container {
+    display: inline-block;
+}
+/* Comments
+----------------------------------------------- */
+.bypostauthor {
+}
+.avatar {
+	display: block;
+	float: left;
+	padding: 0 1em 0.625em 0;
+}
+#commentlist {
+	padding: 1.25em 0;
+}
+.commentmetadata {
+	margin-top: 0;
+	font-size: 13px;
+}
+.commentmetadata a {
+    color: #888;
+}
+span.says {
+    display: none;
+}
+cite.fn {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0 0 5px;
+    display: block;
+	padding: 20px 0 0;
+}
+ol#commentlist, ol#commentlist li {
+	list-style: none;
+	margin:0; padding:0;
+}
+ol#commentlist li {
+	border: 1px solid #eee;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.25em;
+	padding: 0.625em;
+	margin: 1em 0;
+}
+ol#commentlist ul li,
+ol#commentlist ol li {
+	border: none;
+}
+ol#commentlist ul li{
+	list-style: disc;
+}
+ol#commentlist ol li {
+	list-style: decimal;
+}
+ol#commentlist ul.children {
+	margin: 0.625em 0.625em 0 1.25em;
+	padding: 0;
+}
+ol#commentlist ul.children li {
+	border: none;
+	border-top: 1px solid #eee;
+	list-style: none;
+}
+ol#commentlist li p {
+	padding: 0;
+	margin: 1em 0 0;
+	font-size: 14px;
+	display: block;
+	line-height: 1.8em;
+	clear: both;
+}
+.commentform {
+	padding: 1.25em 0;
+}
+.commentform p {
+	margin-bottom: 0.625em;
+}
+.comment-body {
+    clear: both;
+    overflow: hidden;
+}
+#commentlist .reply {clear:both;}
+#commentlist .reply a {
+    background: #00C5B6;
+    color: #fff;
+    padding: 5px 10px;
+    display: block;
+    float: right;
+}
+#respond p {
+    padding: 0 !important;
+}
+#commentform input {
+    display: block;
+    margin: 5px 0 0;
+}
+span.required {
+    color: #EE5D5D;
+}
+#commentform textarea {
+    margin:5px 0 !important;
+    display:block;
+}
+
+/* Hides the content explaining what html tags are allowed*/
+.form-allowed-tags {display: none;}
+
+/* Forms and buttons
+--------------------------------*/
+button,
+body .woocommerce button.button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    background: #379EDD;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    color: #fff;
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: 11px 15px;
+	text-transform: uppercase;
+}
+button:hover,
+body .woocommerce button.button:hover,
+html input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+button:focus,
+html input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+html input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	background: #00C5B6;
+	color: #fff;	
+}
+.woocommerce .buttons a.button {
+    border-top: 1px solid #00C5B6;
+    border-bottom: 1px solid #00C5B6;
+}
+.woocommerce .buttons a.button:hover {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+.woocommerce #sidebar .widget_price_filter .ui-slider .ui-slider-range,
+.woocommerce #sidebar .widget_price_filter .price_slider_wrapper .ui-widget-content,
+.woocommerce #sidebar .widget_price_filter .ui-slider .ui-slider-handle {
+	background-color: #fff;
+}
+input[type=text]:focus,
+textarea:focus {
+	color: #111;
+}
+textarea {
+	padding-left: 3px;
+	width: 98%;
+}
+
+/* Search Form
+-------------------------------------------*/
+#searchform {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+}
+#searchform #searchsubmit {
+	border-radius: 0px;
+	float: left;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.1;
+	padding: 0.625em;
+	vertical-align: middle;
+}
+#searchform input#s {
+	border-radius: 0px;
+	float: left;
+	font-size: 13px;
+	font-size: 1.3rem;
+	margin: 0;
+	padding: 3.5%;
+	width: 92%;
+}
+
+
+/* =Media Print
+-------------------------------------------------------------- */
+@media print {
+
+    h1 {
+	    page-break-before: always;
+    }
+
+    h1,  h2,  h3,  h4,  h5,  h6 {
+	    page-break-after: avoid;
+    }
+
+    ul,  ol,  dl {
+	    page-break-before: avoid;
+    }
+}
+
+/* Media Queries
+-------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+	#top-wrap, .top-inner, #wrap {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#content,
+	#sidebar {
+		float: left;
+		padding: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.main-navigation ul {
+		display: none;
+	}
+	.menu-toggle {
+		display: block;
+	}
+	.site-header .menu-toggle {
+	  background: #E7E4E4;
+	  color: white;
+	  font-family: 'Muli', sans-serif;
+	  font-size: 15px;
+	  font-size: 1.5rem;
+	  padding: 15px 22px;
+	  margin: 0;
+	}
+	.site-header .menu-toggle:hover {
+	  background: #00C5B6;
+	}
+	.site-header .menu-toggle:before {
+	  content: '\2261';
+	  font-size: 14px;
+	  font-size: 1.4rem;
+	  margin-right: 10px;
+	}
+	.main-small-navigation ul,
+	.main-small-navigation ul ul {
+	  display: block;
+	}
+	.main-small-navigation ul {
+	  margin: 0;
+	  list-style: none;
+	}
+	.main-small-navigation a {
+	  display: block;
+	  color: white;
+	  padding: 10px 40px;
+	  text-decoration: none;
+	}
+	.main-small-navigation li {
+	  background: #E7E4E4;
+	}
+	.main-small-navigation li:hover {
+	  background: #00C5B6;
+	}
+	.main-small-navigation ul ul a {
+	  padding-left: 60px;
+	}
+	.main-small-navigation ul ul ul a {
+	  padding-left: 80px;
+	}
+}
+
+.gallery-caption {}
+
+
+/* SLIDER
+-------------------------------------------------------------- */
+.slide-wrapp {
+    max-width: 1200px;
+    overflow: hidden;
+    box-shadow: 0 0 11px rgba(0,0,0,0.5);
+}
+.slide {
+	display:inline-block;
+    vertical-align: middle;
+}
+.slide a {
+	display:block;
+}
+.slide-img {
+	max-width: 980px;
+}
+.autoplay {
+	height: 416px;
+}
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 275px;
+    cursor: pointer;
+    width: 60px;
+    height: 100px;
+    opacity: 0.8;
+    z-index: 999;
+    border: 2px solid #008CF6;
+}
+.slick-prev:hover, .slick-next:hover {
+      opacity: 1;
+}
+.slick-prev {
+      background: url(images/slider-arrow.png);
+}
+.slick-next {
+      margin-left: 1137px;
+      background: url(images/slider-arrow.png) 60px 1px;
+}
+.description-slide {
+       float: right;
+}
+.description-slide li {
+       font-size: 20px;
+       list-style: url(image/galochka-oval-golubaya.png);
+       color: #00C5B6;
+       line-height: 2.4;
+}
+.description-slide ul {
+       margin-left: 3em;
+}
+.description-slide .slide-red-list {
+       color: #f21313;
+       list-style: url(image/galochka-oval-red.png);
+}
+
+/* TOPBAR
+-------------------------------------------------------------- */
+.wrapper-fixed .container {
+   max-width: 980px;
+   padding: 0 30px;
+   margin: 0 auto;
+}
+.topmenu {
+   float: left;
+ }
+
+ /*Navigation*/
+#arrow-top {
+   display: none;
+   width: 38px;
+   height: 36px;
+   background: #379EDD;
+   border-radius: 4px;
+   margin-right: 30px;
+   position: fixed;
+   right: 40px;
+   bottom: 20px;
+   cursor: pointer;
+}
+#arrow-top:before {
+   font-size: 25px;
+   font-family: 'WooCommerce';
+   content: "\e02a";
+   color: #FFF;
+}
+.pagination {
+   margin: 12px;
+   display: block;
+   text-align: center;
+}
+.paggi-nav {
+   padding: 2px 10px;
+   border-radius: 2px;
+   font-size: 14px;
+   display: inline-block;
+   white-space: nowrap;
+   clear: both;
+   border: 1px solid #d3ced2;   
+   margin: 3px;
+}
+.paggi-nav:hover {
+   background: #E8E8E8;
+}
+/*Post*/
+.attachment-blog {
+      float: left;
+      margin: 15px;
+}
+.price-indicators {
+      display: inline-block;
+      background: #E7E4E4;
+      padding: 2px 0 2px 9px;
+      margin-bottom: 20px;
+}
+.number {
+      background: #00C5B6;
+      padding: 5px 9px;
+      color: #fff;
+}
+.description-service {
+     text-align: center;
+     color: #00C5B6;
+     font-size: 20px;
+}
+
+/*news tamplate*/
+.new-posts {
+     display: inline-block;
+     vertical-align: top;
+     padding: 0 5px;
+     width: 542px;
+     text-align: justify;
+}
+
+/*interiors tamplate*/
+.interiors {
+	display: inline-block;
+	border: 1px solid #000;
+	margin-bottom: 10px;
+}
+.interiors a {
+	display: block;
+}
+/*manufacturers
+***********************************************************************************/
+.manufacturers li {
+	display: inline-block;
+    width: 205px;
+    height: 238px;
+    padding: 2px;
+}
+.manufacturers img {
+	width: 100%;	
+}
+
+/*map*****************************************************************************************************/
+
+.map-button {
+   width: 150px;
+   height: 30px;
+   padding-top: 5px;
+   border: 1px solid #000;
+   display: inline-block;
+   text-align: center;
+}
+.tabs-content {
+    width: 720px;
+    height: 450px;
+    overflow:hidden;
+    margin: 15px 0;
+}
+.tabs-content ul {
+    list-style: none;
+    /* Эти 3 линии для Opera */
+    overflow: scroll;
+    overflow-y: hidden;
+    margin: 0;
+}
+.tabs-content ul li {
+    width:960px;
+    height:450px;
+}
+
+/*WooComerce********************************************************************************/
+.woocommerce #container #content div.product div.summary {
+    width: 60%;
+}
+.woocommerce #container #content div.product div.images {
+    width: 38.7%;
+}
+.woocommerce #container #content div.product div.thumbnails a {
+    margin-bottom: 0;
+    margin-right: 1.5%;    
+}
+.image-gallery {
+   padding-top: 0.3em;
+   height: 90px;
+   width: 90px;
+   display: inline-block;
+   overflow: hidden;
+}
+.product-gallery{
+	width: 100%;
+	overflow: hidden;
+}
+a[rel="example_group"] {
+	padding: 1px;
+    display: block;
+}
+.product-thumbnail {
+	width: 400px;
+}
+.woocommerce .buttons a.button,
+#content .woocommerce-message .button,
+.woocommerce #content button.button.alt,
+#content .woocommerce input.button,
+#content .woocommerce  a.button,
+.woocommerce #content ul.products li.product .button {
+	background-color: #00C5B6;
+	margin-top: 0;
+	color: #fff;
+}
+body #main .woocommerce-breadcrumb {
+	font-size: 19px;
+	margin: 8px 0 15px 24px;
+}
+body #main .woocommerce-breadcrumb a {
+	color: #00C5B6;	
+}
+.woocommerce .buttons a.button:hover,
+.woocommerce #content ul.products li.product .button:hover,
+#content .woocommerce  a.button:hover,
+#content .woocommerce input.button:hover,
+#content .woocommerce-message .button:hover,
+.woocommerce #content button.button.alt:hover {
+	background-color: #05C2FA;
+}
+.woocommerce #content ul.products .amount {
+	width: 106%;
+    display: block;
+}
+.woocommerce .amount {
+    font-weight: 700;
+}
+.woocommerce div.product p.price .amount,
+.woocommerce #content div.product form.cart,
+.sku_wrapper,
+.posted_in {
+	padding: 2% 8%;
+	display: block;
+}
+.woocommerce #content ul.products del,
+.woocommerce div.product p.price del {
+	color: #E90404;
+}
+.woocommerce #content ul.products li.product a img {
+    margin: 0;
+}
+.woocommerce #main #content div.product div.images {
+	width: 32.25%;
+}
+.woocommerce #main #content div.product div.summary {
+    width: 61%;
+}
+.offers {
+	padding-left: 15%;
+}
+del .amount:before {
+	content: "Старая цена: ";
+}
+ins .amount:before {
+	content: "Новая цена: ";
+}
+.amount:before {
+	content: "Цена: ";
+}
+.on-sale {
+	color: #fff;
+    font-size: 24px;
+    position: absolute;
+    left: 150px;
+    top: 16px;
+    background: url(images/sale.png);
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 153px;
+}
+.products .on-sale {
+    font-size: 22px;
+    left: 64px;
+    top: -19px;
+    background: url(images/sale-mini.png);
+    width: 110px;
+    height: 110px; 
+    line-height: 117px;
+}
+.product_meta {
+	font-size: 1.25em;
+	color: #05C2FA;
+}
+#searchform #searchsubmit {
+	margin-top: 5px;
+}
+.price_label {
+	clear: both;
+	text-align: center;
+}
+.product-categories .children {
+	display: none;
+}
+.product-categories .current-cat .children,
+.product-categories .current-cat-parent .children {
+	display: block;
+	background: #00C5B6;
+}
+#sidebar .children {
+    border-top: 1px solid #fff;	
+	border-bottom: 1px solid #fff;
+}
+#sidebar .children li {	
+	margin-left: 18px;
+	border-bottom: 1px solid #fff;
+}
+#sidebar .children li:last-child {
+	border-bottom: none;
+}
+#wrapp .woocommerce .related ul li.product, .woocommerce .related ul.products li.product {
+	width: 20%;
+}
+.home .cat-products {
+       display:inline-block;
+       width: 24.5%;
+}
+.home .cat-products a {
+       display: block;
+}
+.home .cat-products img {
+       padding: 5px;
+}
+body .chat-help .chat-help-btn-cnt {
+	background-color: #05B9FA;
+	padding: 7px 37px;
+}
+.cat-link {
+	float: right;
+}
+.b-post {
+	  margin-bottom: 50px;
+}
+.woocommerce nav.woocommerce-pagination {
+	margin-bottom: 10px;
+}

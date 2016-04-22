@@ -1,0 +1,1 @@
+<?php get_the_date( $d ); ?>
